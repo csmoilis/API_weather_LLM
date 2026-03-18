@@ -1,0 +1,178 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Daily Weather Poem</title>
+        <style>
+            body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; padding: 40px; max-width: 800px; margin: auto; background-color: #f4f7f6; }
+            .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
+            h1 { color: #2c3e50; text-align: center; }
+            pre { white-space: pre-wrap; font-size: 1.1rem; color: #34495e; font-style: italic; background: #fafafa; padding: 15px; border-radius: 8px; }
+            table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+            th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+            th { background-color: #3498db; color: white; }
+        </style>
+    </head>
+    <body>
+        <h1>Weather Forecast & Poem</h1>
+        <div class="card">
+            <h2>The Daily Poem</h2>
+            <pre>**English Poem:**
+
+Tomorrow's forecast, a tale to tell,
+Of three locations, with weather to compel.
+Punta Arenas, Viña del Mar, and Aalborg too,
+Each with its own story, of skies anew.
+
+Punta Arenas, chilly and grey,
+With max temp at 11.4, and precip on the way.
+The winds howl strong, at 20.9, a fierce delight,
+Clouds abound, at 87, a somber sight.
+Humidity's at 75, a moderate pace,
+A day to bundle up, in this southern place.
+
+Viña del Mar, a contrast to behold,
+Warm and sunny, with not a cloud to unfold.
+The max temp rises, to 17.8, a pleasant high,
+No precip in sight, just a clear blue sky.
+The winds are gentle, at 14.2, a soothing breeze,
+Clouds are scarce, at 1, a bright and sunny tease.
+Humidity's at 80, a comfortable zone,
+A perfect day, to soak up the sun's warm tone.
+
+Aalborg, Denmark, a mix of both,
+Cool and cloudy, with a hint of precipitation's broth.
+The max temp's at 10.3, a mild and gentle hue,
+Precip's at 0.1, a slight chance, of a shower or two.
+The winds are moderate, at 14.8, a steady beat,
+Clouds are plentiful, at 69, a grey and misty treat.
+Humidity's high, at 92, a damp and chilly air,
+A day to stay indoors, with a warm and cozy care.
+
+So where would you rather be, tomorrow's the test,
+Punta Arenas, Viña del Mar, or Aalborg, which one's the best?
+If you seek sunshine, and a warm gentle breeze,
+Viña del Mar's the place, where your heart will find ease.
+
+**Spanish Poem:**
+
+El pronóstico del mañana, un cuento que contar,
+De tres lugares, con clima que nos hace reflexionar.
+Punta Arenas, Viña del Mar y Aalborg también,
+Cada uno con su propia historia, de cielos nuevos.
+
+Punta Arenas, frío y gris,
+Con temperatura máxima de 11.4, y precipitaciones en camino.
+Los vientos aullan fuertes, a 20.9, un espectáculo feroz,
+Las nubes abundan, a 87, un panorama sombrío.
+La humedad está en 75, un ritmo moderado,
+Un día para abrigarse, en este lugar del sur.
+
+Viña del Mar, un contraste que contemplar,
+Cálido y soleado, sin una nube que se despliegue.
+La temperatura máxima asciende, a 17.8, un agradable alto,
+No hay precipitaciones a la vista, solo un cielo azul claro.
+Los vientos son suaves, a 14.2, una brisa suave,
+Las nubes son escasas, a 1, un sol radiante y cálido.
+La humedad está en 80, una zona cómoda,
+Un día perfecto, para disfrutar del calor del sol.
+
+Aalborg, Dinamarca, una mezcla de ambos,
+Fresco y nuboso, con una pizca de precipitaciones.
+La temperatura máxima está en 10.3, un matiz suave y gentil,
+La precipitación está en 0.1, una ligera posibilidad, de una lluvia o dos.
+Los vientos son moderados, a 14.8, un ritmo constante,
+Las nubes son abundantes, a 69, un tratamiento gris y brumoso.
+La humedad está alta, a 92, un aire húmedo y frío,
+Un día para quedarse en casa, con un calor y una comodidad cálida.
+
+Así que ¿dónde preferirías estar, mañana es la prueba,
+Punta Arenas, Viña del Mar o Aalborg, ¿cuál es el mejor?
+Si buscas sol y una brisa cálida y suave,
+Viña del Mar es el lugar, donde tu corazón encontrará descanso.</pre>
+        </div>
+        <div class="card">
+            <h2>Weather Data</h2>
+            <table border="1" class="dataframe weather-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>id</th>
+      <th>location</th>
+      <th>date</th>
+      <th>max_temp</th>
+      <th>precip</th>
+      <th>max_wind</th>
+      <th>avg_clouds</th>
+      <th>avg_humidity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Punta Arenas, Chile</td>
+      <td>2026-03-19</td>
+      <td>11.4</td>
+      <td>0.2</td>
+      <td>20.9</td>
+      <td>87</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Viña del Mar, Chile</td>
+      <td>2026-03-19</td>
+      <td>17.8</td>
+      <td>0.0</td>
+      <td>14.2</td>
+      <td>1</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Aalborg, Denmark</td>
+      <td>2026-03-19</td>
+      <td>10.3</td>
+      <td>0.1</td>
+      <td>14.8</td>
+      <td>69</td>
+      <td>92</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Punta Arenas, Chile</td>
+      <td>2026-03-19</td>
+      <td>11.4</td>
+      <td>0.2</td>
+      <td>20.9</td>
+      <td>87</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Viña del Mar, Chile</td>
+      <td>2026-03-19</td>
+      <td>17.8</td>
+      <td>0.0</td>
+      <td>14.2</td>
+      <td>1</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Aalborg, Denmark</td>
+      <td>2026-03-19</td>
+      <td>10.5</td>
+      <td>0.1</td>
+      <td>14.8</td>
+      <td>69</td>
+      <td>92</td>
+    </tr>
+  </tbody>
+</table>
+        </div>
+        <p style="text-align:center; font-size: 0.8rem;">Last updated: 2026-03-18 15:09:30</p>
+    </body>
+    </html>
+    
