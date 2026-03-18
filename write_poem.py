@@ -9,6 +9,8 @@ import tabulate
 SQL_DB_PATH = "weather.db"
 groq_key = os.environ.get("GROQ_API_KEY")
 
+if not groq_key:
+    raise ValueError("GROQ_API_KEY not found! Did you set your environment variables?")
 # The poem should:
 
 # compare the weather in the three locations
@@ -32,12 +34,21 @@ def view_weather_data():
     weather_table_text = df.to_markdown(index=False)
     
     prompt = f"""
-        Analyze the following weather data for tomorrow:
+        You have to write a poem based on the data that comes from the weather forecast from tomorrow with this format:
+        max_temp = max temperature in celcius
+        precip = precipitation 
+        max_wind = max wind
+        avg_clouds = amount of clouds
+        avg_humidity = how humid it will be
+
+        the weather forecast with the last variables are in this table:
 
         {weather_table_text}
 
-        Please provide a brief summary of the weather conditions for each city, 
-        highlighting any extreme values or notable patterns.
+        Poem structure:
+        write about the 2 weather variables with the higher difference
+        write about where the day it would be nicer
+        finally, write it in english and spanish
     """
     client = Groq(api_key=groq_key)
     
