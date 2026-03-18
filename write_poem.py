@@ -7,10 +7,10 @@ import os
 import tabulate
 
 SQL_DB_PATH = "weather.db"
-groq_key = os.environ.get("GROQ_API_KEY")
+groq_key = os.getenv("GROQ_API_KEY")
 
 if not groq_key:
-    raise ValueError("GROQ_API_KEY not found! Did you set your environment variables?")
+    raise ValueError("GROQ_API_KEY not found!")
 # The poem should:
 
 # compare the weather in the three locations
