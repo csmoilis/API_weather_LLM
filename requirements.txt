@@ -3,6 +3,5 @@ requests
 pandas
 datetime
 chromadb
-fstring
 tabulate
 groq

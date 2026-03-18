@@ -1,6 +1,5 @@
 import sqlite3
 import pandas as pd
-import fstring
 from datetime import datetime, timedelta
 from groq import Groq
 import os
