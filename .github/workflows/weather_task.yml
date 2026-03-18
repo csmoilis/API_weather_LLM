@@ -26,7 +26,7 @@ jobs:
       - name: Run Weather Script
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-        run: python weather_poem.py
+        run: python write_poem.py
 
       - name: Commit and Push Changes
         run: |

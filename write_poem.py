@@ -7,8 +7,6 @@ import os
 import tabulate
 
 
-
-
 SQL_DB_PATH = "weather.db"
 groq_key = os.environ.get("GROQ_API_KEY")
 
