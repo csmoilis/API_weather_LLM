@@ -2,8 +2,13 @@ import sqlite3
 import pandas as pd
 import fstring
 from datetime import datetime, timedelta
-SQL_DB_PATH = "weather.db"
+from groq import Groq
+import os
 import tabulate
+
+SQL_DB_PATH = "weather.db"
+groq_key = os.environ.get("GROQ_API_KEY")
+
 # The poem should:
 
 # compare the weather in the three locations
@@ -34,8 +39,26 @@ def view_weather_data():
         Please provide a brief summary of the weather conditions for each city, 
         highlighting any extreme values or notable patterns.
     """
+    client = Groq(api_key=groq_key)
     
-    return prompt
+    completion = client.chat.completions.create(
+        model="llama-3.3-70b-versatile",
+        messages=[
+            {
+                "role": "system", 
+                "content": "You are a professional Poet that understand basic weather terminologies."
+            },
+            {
+                "role": "user", 
+                "content": prompt
+            }
+        ],
+        temperature=0.5,
+        max_tokens=1024
+    )
+
+    return completion.choices[0].message.content
+
 
 if __name__ == "__main__":
     view_weather_data()
