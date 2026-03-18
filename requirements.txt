@@ -5,3 +5,5 @@ datetime
 chromadb
 tabulate
 groq
+jinja2
+fstring
