@@ -1,16 +1,18 @@
-name: Daily Weather Analysis
+name: Update Weather Page
 
 on:
   schedule:
-    - cron: '0 20 * * *'  # Line 6 is usually around here
-  workflow_dispatch:      # Allows manual run
+    - cron: '0 20 * * *'
+  workflow_dispatch:
 
 jobs:
-  run-weather-task:
+  build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Crucial for allowing the bot to commit
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Set up Python
@@ -18,11 +20,18 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install Dependencies
-        run: |
-          pip install pandas requests groq tabulate
+      - name: Install dependencies
+        run: pip install pandas requests groq jinja2  # Add jinja2 if you use templates
 
-      - name: Execute Weather Analysis
+      - name: Run Weather Script
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-        run: python your_script_name.py
+        run: python weather_poem.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/index.html
+          git commit -m "Auto-update weather page" || echo "No changes to commit"
+          git push
