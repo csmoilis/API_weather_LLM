@@ -11,16 +11,27 @@ SQL_DB_PATH = "weather.db"
 groq_key = os.environ.get("GROQ_API_KEY")
 
 def get_weather_and_poem():
+    print("🚀 Starting write_poem.py...")
     conn = sqlite3.connect(SQL_DB_PATH)
     tomorrow = (datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d')
-    query = f"SELECT * FROM weather WHERE date = '{tomorrow}'"
+    print(f"📅 Looking for database records for date: {tomorrow}")
     
+    query = f"SELECT * FROM weather WHERE date = '{tomorrow}'"
     df = pd.read_sql_query(query, conn)
     conn.close()
     
     if df.empty:
+        print("🚨 WARNING: The database returned 0 rows! Skipping poem generation.")
         return None, None
+
+    print(f"✅ Found {len(df)} rows. Cleaning up duplicates...")
+    
     df = df.drop_duplicates(subset=['location'], keep='last')
+    
+    if 'id' in df.columns:
+        df = df.drop(columns=['id'])
+
+    print("✍️ Requesting poem from AI...")
 
     weather_table_text = df.to_markdown(index=False)
     
