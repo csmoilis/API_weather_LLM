@@ -1,5 +1,5 @@
 import pandas as pd
-
+import requests
 from datetime import datetime, timedelta
 
 import sqlite3
