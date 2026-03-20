@@ -59,6 +59,47 @@ def view_weather_data():
 
     return completion.choices[0].message.content
 
+def update_web_page(poem_content, weather_df):
+    # Ensure the docs folder exists (required for GitHub Pages)
+    if not os.path.exists('docs'):
+        os.makedirs('docs')
+        
+    html_content = f"""
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Daily Weather Poem</title>
+        <style>
+            body {{ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; padding: 40px; max-width: 800px; margin: auto; background-color: #f4f7f6; }}
+            .card {{ background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }}
+            h1 {{ color: #2c3e50; text-align: center; }}
+            pre {{ white-space: pre-wrap; font-size: 1.1rem; color: #34495e; font-style: italic; }}
+            table {{ width: 100%; border-collapse: collapse; margin-top: 20px; }}
+            th, td {{ padding: 12px; border: 1px solid #ddd; text-align: left; }}
+            th {{ background-color: #3498db; color: white; }}
+        </style>
+    </head>
+    <body>
+        <h1>Weather Forecast & Poem</h1>
+        <div class="card">
+            <h2>The Daily Poem</h2>
+            <pre>{poem_content}</pre>
+        </div>
+        <div class="card">
+            <h2>Weather Data</h2>
+            {weather_df.to_html(index=False)}
+        </div>
+        <p style="text-align:center; font-size: 0.8rem;">Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
+    </body>
+    </html>
+    """
+    
+    with open("docs/index.html", "w", encoding="utf-8") as f:
+        f.write(html_content)
+
 
 if __name__ == "__main__":
-    view_weather_data()
+    result = generate_weather_poem()
+    update_web_page(result, df)
