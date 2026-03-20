@@ -1,5 +1,6 @@
 import sqlite3
 import pandas as pd
+import requests
 from datetime import datetime, timedelta
 from groq import Groq
 import os
@@ -19,6 +20,7 @@ def get_weather_and_poem():
     
     if df.empty:
         return None, None
+    df = df.drop_duplicates(subset=['location'], keep='last')
 
     weather_table_text = df.to_markdown(index=False)
     
