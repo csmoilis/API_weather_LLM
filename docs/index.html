@@ -1,0 +1,144 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Daily Weather Poem</title>
+        <style>
+            body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; padding: 40px; max-width: 800px; margin: auto; background-color: #f4f7f6; }
+            .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
+            h1 { color: #2c3e50; text-align: center; }
+            pre { white-space: pre-wrap; font-size: 1.1rem; color: #34495e; font-style: italic; background: #fafafa; padding: 15px; border-radius: 8px; }
+            table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+            th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+            th { background-color: #3498db; color: white; }
+        </style>
+    </head>
+    <body>
+        <h1>Weather Forecast & Poem</h1>
+        <div class="card">
+            <h2>The Daily Poem</h2>
+            <pre>**English Poem**
+
+Tomorrow's forecast, a tale to tell,
+Of three locations, with weather to compel.
+Punta Arenas, Chile, with clouds so gray,
+87% coverage, a gloomy day.
+Max temp at 11.4, with winds so strong,
+20.9 km/h, a chilly, windy song.
+Viña del Mar, a contrast to behold,
+Sunny skies, with clouds only 1% to unfold.
+17.8 degrees, a pleasant day to roam,
+No precipitation, a perfect weather home.
+Aalborg, Denmark, with clouds at 69%,
+A mild 10.3 degrees, with gentle winds to attend.
+But which location, would be the nicest to be,
+Tomorrow, with weather, a sight to see?
+Viña del Mar, with sunshine so bright,
+Would be the place, to spend the day in delight.
+
+**Spanish Poem**
+
+El pronóstico del mañana, un cuento que contar,
+De tres lugares, con clima que nos atraer.
+Punta Arenas, Chile, con nubes grises,
+87% de cobertura, un día sombrío.
+Temperatura máxima a 11.4, con vientos tan fuertes,
+20.9 km/h, una canción fría y ventosa.
+Viña del Mar, un contraste que contemplar,
+Cielos soleados, con nubes solo 1% para desplegar.
+17.8 grados, un día agradable para pasear,
+Sin precipitación, un clima perfecto para estar.
+Aalborg, Dinamarca, con nubes al 69%,
+10.3 grados, suaves, con vientos que atienden.
+Pero ¿qué lugar, sería el más agradable para estar,
+Mañana, con el clima, un espectáculo que ver?
+Viña del Mar, con sol tan brillante,
+Sería el lugar, para pasar el día en deleite.
+
+Note: I've kept the same structure and rhythm in both English and Spanish poems, to make them comparable and easy to understand. I've also used similar vocabulary and imagery to describe the weather conditions in both languages.</pre>
+        </div>
+        <div class="card">
+            <h2>Weather Data</h2>
+            <table border="1" class="dataframe weather-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>id</th>
+      <th>location</th>
+      <th>date</th>
+      <th>max_temp</th>
+      <th>precip</th>
+      <th>max_wind</th>
+      <th>avg_clouds</th>
+      <th>avg_humidity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Punta Arenas, Chile</td>
+      <td>2026-03-19</td>
+      <td>11.4</td>
+      <td>0.2</td>
+      <td>20.9</td>
+      <td>87</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Viña del Mar, Chile</td>
+      <td>2026-03-19</td>
+      <td>17.8</td>
+      <td>0.0</td>
+      <td>14.2</td>
+      <td>1</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Aalborg, Denmark</td>
+      <td>2026-03-19</td>
+      <td>10.3</td>
+      <td>0.1</td>
+      <td>14.8</td>
+      <td>69</td>
+      <td>92</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Punta Arenas, Chile</td>
+      <td>2026-03-19</td>
+      <td>11.4</td>
+      <td>0.2</td>
+      <td>20.9</td>
+      <td>87</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Viña del Mar, Chile</td>
+      <td>2026-03-19</td>
+      <td>17.8</td>
+      <td>0.0</td>
+      <td>14.2</td>
+      <td>1</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Aalborg, Denmark</td>
+      <td>2026-03-19</td>
+      <td>10.5</td>
+      <td>0.1</td>
+      <td>14.8</td>
+      <td>69</td>
+      <td>92</td>
+    </tr>
+  </tbody>
+</table>
+        </div>
+        <p style="text-align:center; font-size: 0.8rem;">Last updated: 2026-03-18 20:41:56</p>
+    </body>
+    </html>
+    
